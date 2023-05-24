@@ -1,0 +1,142 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+}
+.warning{
+    padding: 5px 0px;
+    text-align: center;
+    animation: slideColor 2s infinite;
+}
+nav{
+    z-index: 100;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    padding: 4px 20px;
+    background-color: black;
+    position: sticky;
+    top: 0;
+}
+.logo{
+    color: white;
+    font-family: cursive;
+    font-size: 30px;
+    text-decoration: underline dashed 2px white;
+}
+.logo:hover{
+    cursor: default;
+}
+.account,.search,.address,.cart{
+    display: flex;
+    flex-direction: row;
+}
+.address:hover,.cart:hover,.addr:hover{
+    cursor: pointer;
+}
+.addr{
+    color: white;
+}
+.addr p{
+    font-size: 12px;
+    font-weight: 600;
+}
+.addr h4{
+    font-size: 15px;
+}
+.search>input{
+    padding: 10px 20px;
+    font-size: 20px;
+    border: 1px solid white;
+    width: 700px;
+    border-radius: 5px 0px 0px 5px;
+    outline: none;
+}
+.search button{
+    margin-right: 10px;
+    border: 1px solid white;
+    background-color: rgb(252, 250, 86);
+    padding: 5px 10px;
+    color: white;
+    border-radius: 0px 5px 5px 0px;
+}
+.search button:hover{
+    background-color: rgb(233, 245, 162);
+    cursor: pointer;
+}
+.search button:active{
+    background-color: rgb(162, 162, 249);
+}
+.searchIcon{
+    color: rgb(68, 14, 14);
+    font-weight: 800;
+    font-size: 30px;
+}
+#lang{
+    background: none;
+    color: white;
+    border: none;
+    font-size: 20px;
+}
+#lang:hover{
+    cursor: pointer;
+}
+
+
+@keyframes slideColor {
+    0% {
+        background: linear-gradient( to right,rgb(249, 107, 107),rgb(248, 248, 94),white,lightblue,rgb(76, 76, 248));
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+    10%{
+        background: linear-gradient(to right,rgb(76, 76, 248), rgb(249, 107, 107),rgb(248, 248, 94),white,lightblue);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+    20% {
+        background: linear-gradient( to right,lightblue,rgb(76, 76, 248),rgb(249, 107, 107),rgb(248, 248, 94),white);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+    30%{
+        background: linear-gradient(to right,white,lightblue,rgb(76, 76, 248), rgb(249, 107, 107),rgb(248, 248, 94));
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+    40% {
+        background: linear-gradient( to right,rgb(248, 248, 94),white,lightblue,rgb(76, 76, 248),rgb(249, 107, 107));
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+    50%{
+        background: linear-gradient(to right, rgb(249, 107, 107),rgb(248, 248, 94),white,lightblue,rgb(76, 76, 248));
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+    60%{
+        background: linear-gradient(to right,rgb(76, 76, 248), rgb(249, 107, 107),rgb(248, 248, 94),white,lightblue);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+    70% {
+        background: linear-gradient( to right,lightblue,rgb(76, 76, 248),rgb(249, 107, 107),rgb(248, 248, 94),white);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+    80%{
+        background: linear-gradient(to right,white,lightblue,rgb(76, 76, 248), rgb(249, 107, 107),rgb(248, 248, 94));
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+    90% {
+        background: linear-gradient( to right,rgb(248, 248, 94),white,lightblue,rgb(76, 76, 248),rgb(249, 107, 107));
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+    100%{
+        background: linear-gradient(to right, rgb(249, 107, 107),rgb(248, 248, 94),white,lightblue,rgb(76, 76, 248));
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+}
