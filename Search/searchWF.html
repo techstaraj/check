@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../CSS/nav.css">
+    <link rel="stylesheet" href="search.css">
+    <link rel="stylesheet" href="../CSS/footer.css">
+    <title>Search</title>
+</head>
+<body>
+    <nav>
+        <div class="logo">
+            <h1>Omkar Enterprises</h1>
+        </div>
+        <div class="address">
+            <svg width="15" height="20" style="margin-right:5px;margin-top:5px">
+                <circle cx="7" cy="10" r="3" fill="none" stroke="white" stroke-width="2" />
+                <path d="M7 20 L3 15 C-7 0 20 0 11 15 Z " fill="none" stroke="white" stroke-width="2" />
+            </svg>
+            <div class="addr">
+                <p>Hello</p>
+                <h4>Select Address</h4>
+            </div>
+        </div>
+        <div class="search">
+            <input type="text" placeholder="Search Items" id="search">
+            <button onclick="search()">
+                <ion-icon name="search-outline" class="searchIcon"</ion-icon>
+            </button>
+        </div>
+        <div class="lang">
+            <select name="language" id="lang">
+                <option value="En">English</option>
+                <option value="Hi">Hindi</option>
+                <option value="Mar">Marathi</option>
+            </select>
+        </div>
+        <div class="addr">
+            <p>Returns</p>
+            <h4>& Order</h4>
+        </div>
+        <div class="cart">
+            <ion-icon name="cart-outline" style="color: white;font-size: 50px;"></ion-icon>
+            <p style="color: white;font-weight: 600;align-self: center;">Cart</p>
+        </div>
+    </nav>
+    <h3 class="warning">The Services are currently available near Pune City Only</h3>
+    <div class="result-Count">
+        <p>1 to 10 of <span id="total-count"></span> Results.</p>
+        <div class="sort">
+            Sort By :
+            <select name="Sort" id="sort">
+                <option value="featured">Featured</option> 
+                <option value="LtoH">Low to high Price</option>
+                <option value="LtoH">high to Low Price</option>
+    
+            </select>
+        </div>
+    </div>
+    <main>
+        <div class="filter">
+            <div class="filter-heading">
+                <ion-icon name="funnel-outline"></ion-icon>
+                <button type="reset" class="filter-reset" onclick="resetFilter()">Reset</button>
+                <button type="reset" class="filter-apply" onclick="applyFilter()">Apply</button>
+            </div>
+            <div id="byBrand">
+                <h3>By Brands</h3>
+                <input type="checkbox" name="Brand" id="B1" onchange="oneSelect(this)">B1<br>
+                <input type="checkbox" name="Brand" id="B2" onchange="oneSelect(this)">B2<br>
+                <input type="checkbox" name="Brand" id="B3" onchange="oneSelect(this)">B3<br>
+                <input type="checkbox" name="Brand" id="B4" onchange="oneSelect(this)">B4<br>
+                <input type="checkbox" name="Brand" id="B5" onchange="oneSelect(this)">B5<br>
+                <input type="checkbox" name="Brand" id="B6" onchange="oneSelect(this)">B6<br>
+                <input type="checkbox" name="Brand" id="B7" onchange="oneSelect(this)">B7<br>
+            </div>
+            <div id="byValue">
+                <h3>By Value</h3>
+                <input type="checkbox" name="Value" id="00to05"   onchange="oneSelect(this)">Less than 5000&#8377;<br>
+                <input type="checkbox" name="Value" id="05to08"   onchange="oneSelect(this)">5000&#8377; to 8000&#8377;<br>
+                <input type="checkbox" name="Value" id="08to10"  onchange="oneSelect(this)">8000&#8377; to 10000&#8377;<br>
+                <input type="checkbox" name="Value" id="10to12" onchange="oneSelect(this)">10000&#8377; to 12000&#8377;<br>
+                <input type="checkbox" name="Value" id="12to15" onchange="oneSelect(this)">12000&#8377; to 15000&#8377;<br>
+                <input type="checkbox" name="Value" id="15to20" onchange="oneSelect(this)">15000&#8377; to 20000&#8377;<br>
+                <input type="checkbox" name="Value" id="20to1000" onchange="oneSelect(this)">20000&#8377; or More<br>
+            </div>
+            <div class="byBodyType">
+                <h3>By Body Type</h3>
+                <input type="checkbox" name="Value" id="Metal"   onchange="oneSelect(this)">Metal<br>
+                <input type="checkbox" name="Value" id="Plastic"   onchange="oneSelect(this)">Plastic<br>
+            </div>
+            <div id="byaccessories">
+                <h3>By Accessories</h3>
+                <input type="checkbox" name="Accessories" id="A1">A1<br>
+                <input type="checkbox" name="Accessories" id="A2">A2<br>
+                <input type="checkbox" name="Accessories" id="A3">A3<br>
+                <input type="checkbox" name="Accessories" id="A4">A4<br>
+                <input type="checkbox" name="Accessories" id="A5">A5<br>
+                <input type="checkbox" name="Accessories" id="A6">A6<br>
+                <input type="checkbox" name="Accessories" id="A7">A7<br>
+                <input type="checkbox" name="Accessories" id="A8">A8<br>
+                <input type="checkbox" name="Accessories" id="A9">A9<br>
+            </div>
+            <div id="byIIC">
+                <h3>By Inner Items Count</h3>
+                <input type="checkbox" name="IIC" id="4E" onchange="oneSelect(this)">4 Elements<br>
+                <input type="checkbox" name="IIC" id="5E" onchange="oneSelect(this)">5 Elements<br>
+                <input type="checkbox" name="IIC" id="6E" onchange="oneSelect(this)">6 Elements<br>
+                <input type="checkbox" name="IIC" id="7E" onchange="oneSelect(this)">7 Elements<br>
+                <input type="checkbox" name="IIC" id="9E" onchange="oneSelect(this)">9 Elements<br>
+            </div>
+        </div>
+        <div class="search-Content">
+            <div class="search-items">
+                <ion-icon name="person-outline"></ion-icon>
+                <div class="content">
+                    <h2>Heading</h2>
+                    <sup>&#8377;</sup><label for="Price" class="price">8000</label><br>
+                    <ion-icon name="business-outline"></ion-icon><label for="company">B1</label><br>
+                    <label for="IIC">7 Elements</label>
+                    <label for="Keyword">Metal</label>
+                    <label for="Keyword">A1</label>
+                    <label for="Keyword">A2</label>
+                    <label for="Keyword">A3</label>
+                    <label for="Keyword">A4</label>
+                    <label for="Keyword">A5</label>
+                    <label for="Keyword">A6</label>
+                    <label for="Keyword">A7</label>
+                </div>
+            </div>
+            <div class="search-items">
+                <ion-icon name="person-outline"></ion-icon>
+                <div class="content">
+                    <h2>Heading</h2>
+                    <sup>&#8377;</sup><label for="Price" class="price">10000</label><br>
+                    <ion-icon name="business-outline"></ion-icon><label for="company">B2</label><br>
+                    <label for="IIC">9 Elements</label>
+                    <label for="Keyword">Plastic</label>
+                    <label for="Keyword">A1</label>
+                    <label for="Keyword">A2</label>
+                    <label for="Keyword">A3</label>
+                    <label for="Keyword">A4</label>
+                    <label for="Keyword">A5</label>
+                    <label for="Keyword">A6</label>
+                    <label for="Keyword">A7</label>
+                    <label for="Keyword">A8</label>
+                    <label for="Keyword">A9</label>
+                </div>
+            </div>
+            <div class="search-items">
+                <ion-icon name="person-outline"></ion-icon>
+                <div class="content">
+                    <h2>Heading</h2>
+                    <sup>&#8377;</sup><label for="Price" class="price">8000</label><br>
+                    <ion-icon name="business-outline"></ion-icon><label for="company">B5</label><br>
+                    <label for="IIC">9 Elements</label>
+                    <label for="Keyword">Plastic</label>
+                    <label for="Keyword">A1</label>
+                    <label for="Keyword">A2</label>
+                    <label for="Keyword">A3</label>
+                    <label for="Keyword">A4</label>
+                    <label for="Keyword">A5</label>
+                    <label for="Keyword">A6</label>
+                    <label for="Keyword">A7</label>
+                    <label for="Keyword">A8</label>
+                    <label for="Keyword">A9</label>
+                </div>
+            </div>
+            <div class="search-items">
+                <ion-icon name="person-outline"></ion-icon>
+                <div class="content">
+                    <h2>Heading</h2>
+                    <sup>&#8377;</sup><label for="Price" class="price">5000</label><br>
+                    <ion-icon name="business-outline"></ion-icon><label for="company">B2</label><br>
+                    <label for="IIC">5 Elements</label>
+                    <label for="Keyword">Plastic</label>
+                    <label for="Keyword">A1</label>
+                    <label for="Keyword">A2</label>
+                    <label for="Keyword">A3</label>
+                    <label for="Keyword">A4</label>
+                    <label for="Keyword">A5</label>
+                </div>
+            </div>
+            <div class="search-items">
+                <ion-icon name="person-outline"></ion-icon>
+                <div class="content">
+                    <h2>Heading</h2>
+                    <sup>&#8377;</sup><label for="Price" class="price">12000</label><br>
+                    <ion-icon name="business-outline"></ion-icon><label for="company">B1</label><br>
+                    <label for="IIC">9 Elements</label>
+                    <label for="Keyword">Plastic</label>
+                    <label for="Keyword">A1</label>
+                    <label for="Keyword">A2</label>
+                    <label for="Keyword">A3</label>
+                    <label for="Keyword">A4</label>
+                    <label for="Keyword">A5</label>
+                    <label for="Keyword">A6</label>
+                    <label for="Keyword">A7</label>
+                    <label for="Keyword">A8</label>
+                    <label for="Keyword">A9</label>
+                </div>
+            </div>
+            <div class="search-items">
+                <ion-icon name="person-outline"></ion-icon>
+                <div class="content">
+                    <h2>Heading</h2>
+                    <sup>&#8377;</sup><label for="Price" class="price">4000</label><br>
+                    <ion-icon name="business-outline"></ion-icon><label for="company">B1</label><br>
+                    <label for="IIC">4 Elements</label>
+                    <label for="Keyword">Plastic</label>
+                    <label for="Keyword">A1</label>
+                    <label for="Keyword">A2</label>
+                    <label for="Keyword">A3</label>
+                    <label for="Keyword">A4</label>
+                </div>
+            </div>
+            <div class="search-items">
+                <ion-icon name="person-outline"></ion-icon>
+                <div class="content">
+                    <h2>Heading</h2>
+                    <sup>&#8377;</sup><label for="Price" class="price">6000</label><br>
+                    <ion-icon name="business-outline"></ion-icon><label for="company">B4</label><br>
+                    <label for="IIC">6 Elements</label>
+                    <label for="Keyword">Plastic</label>
+                    <label for="Keyword">A1</label>
+                    <label for="Keyword">A2</label>
+                    <label for="Keyword">A3</label>
+                    <label for="Keyword">A4</label>
+                    <label for="Keyword">A5</label>
+                    <label for="Keyword">A6</label>
+                </div>
+            </div>
+            <div class="search-items">
+                <ion-icon name="person-outline"></ion-icon>
+                <div class="content">
+                    <h2>Heading</h2>
+                    <sup>&#8377;</sup><label for="Price" class="price">9000</label><br>
+                    <ion-icon name="business-outline"></ion-icon><label for="company">B5</label><br>
+                    <label for="IIC">9 Elements</label>
+                    <label for="Keyword">A1</label>
+                    <label for="Keyword">A2</label>
+                    <label for="Keyword">A3</label>
+                    <label for="Keyword">A4</label>
+                    <label for="Keyword">A5</label>
+                    <label for="Keyword">A6</label>
+                    <label for="Keyword">A7</label>
+                    <label for="Keyword">A8</label>
+                    <label for="Keyword">A9</label>
+                </div>
+            </div>
+            <div class="search-items">
+                <ion-icon name="person-outline"></ion-icon>
+                <div class="content">
+                    <h2>Heading</h2>
+                    <sup>&#8377;</sup><label for="Price" class="price">10000</label><br>
+                    <ion-icon name="business-outline"></ion-icon><label for="company">B2</label><br>
+                    <label for="IIC">6 Elements</label>
+                    <label for="Keyword">A1</label>
+                    <label for="Keyword">A2</label>
+                    <label for="Keyword">A3</label>
+                    <label for="Keyword">A4</label>
+                    <label for="Keyword">A5</label>
+                    <label for="Keyword">A6</label>
+                </div>
+            </div>
+            <div class="search-items">
+                <ion-icon name="person-outline"></ion-icon>
+                <div class="content">
+                    <h2>Heading</h2>
+                    <sup>&#8377;</sup><label for="Price" class="price">7500</label><br>
+                    <ion-icon name="business-outline"></ion-icon><label for="company">B1</label><br>
+                    <label for="IIC">7 Elements</label>
+                    <label for="Keyword">A1</label>
+                    <label for="Keyword">A2</label>
+                    <label for="Keyword">A3</label>
+                    <label for="Keyword">A4</label>
+                    <label for="Keyword">A5</label>
+                    <label for="Keyword">A6</label>
+                    <label for="Keyword">A7</label>
+                </div>
+            </div>
+        </div>
+    </main>
+    <footer>
+        <div class="links">
+            <a href="">Omkar Enterprises</a>
+            <a href="">Top brands</a>
+            <a href="">Accessories</a>
+            <a href="">Cart</a>
+            <a href="">Orde&#8377;</a>
+            <a href="">Brands</a>
+            <a href="">Brands</a>
+            <a href="">Brands</a>
+            <a href="">Brands</a>
+            <a href="">Brands</a>
+            <a href="">Brands</a>
+            <a href="">Brands</a>
+            <a href="">Brands</a>
+            <a href="">Brands</a>
+            <a href="">Brands</a>
+            <a href="">Brands</a>
+            <a href="">Brands</a>
+            <a href="">Brands</a>
+            <a href="">Brands</a>
+            <a href="">Brands</a>
+        </div>
+        <div class="contact">
+            <div class="details">
+                <b>Company Name : </b>Omkar Enterprises <br>
+                <b>Phone Number : </b><a href="">+91 738722775</a> <br>
+                <b>Address : </b>A/p Hiware Kumbhar Tal.Shirur Dist.Pune Pin - 412208<br>
+            </div>
+            <div class="social-media">
+                <ion-icon name="logo-instagram"></ion-icon>
+                <ion-icon name="logo-youtube"></ion-icon>
+                <ion-icon name="logo-twitter"></ion-icon>
+                <ion-icon name="logo-linkedin"></ion-icon>
+                <ion-icon name="logo-whatsapp"></ion-icon>
+                <ion-icon name="logo-snapchat"></ion-icon>
+            </div>
+        </div>
+    </footer>
+    <script src="searchWF.js"></script>
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+</body>
+</html>
